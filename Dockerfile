@@ -2,9 +2,11 @@ FROM puckel/docker-airflow:latest
 
 ARG AIRFLOW_USER_HOME=/usr/local/airflow
 
-COPY requirements.txt /requirements.txt
+RUN pip install apache-airflow-providers-databricks
 
-RUN chmod 744 /requirements.txt
+RUN pip install apache-airflow-providers-databricks
+
+RUN pip install apache-airflow-providers-microsoft-azure
 
 RUN chown -R airflow: ${AIRFLOW_USER_HOME}
 
